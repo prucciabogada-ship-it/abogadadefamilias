@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --gold: #EFCA53;
+    --gold-dark: #C9A227;
+    --bg-cream: #F3EFE9;
+    --bg-dark: #000000;
+  }
+
+  body {
+    font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
+  }
+}
+
+.font-playfair {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.font-prata {
+  font-family: 'Prata', 'Playfair Display', Georgia, serif;
+}
+
+.font-cormorant {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+.font-cinzel {
+  font-family: 'Cinzel', Georgia, serif;
+}
+
+.font-sans-main {
+  font-family: 'Montserrat', sans-serif;
+}
+

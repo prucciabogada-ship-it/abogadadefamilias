@@ -1,0 +1,6 @@
+{
+  "name": "Abogada Paula Rucci - Derecho de Familia e Infancia",
+  "description": "Sitio web oficial de Paula Rucci, Abogada y Mediadora Familiar especializada en Derecho de Familia e Infancia.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
