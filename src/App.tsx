@@ -196,7 +196,7 @@ export default function App() {
           </div>
         </section>
 
-        {/* SECCIÓN 3: NUESTROS SERVICIOS (COLOR RESPONSIVO MÓVIL vs DESKTOP) */}
+        {/* SECCIÓN 3: NUESTROS SERVICIOS (PROPORCIÓN FOTO 3:4) */}
         <section id="servicios" className="bg-black text-white px-8 sm:px-12 lg:px-14 py-14 sm:py-20">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 sm:gap-10 items-start">
             <div className="md:col-span-5 space-y-6">
@@ -205,73 +205,51 @@ export default function App() {
                 SERVICIOS
               </h2>
 
-              <div className="relative rounded-lg overflow-hidden border border-neutral-800 shadow-xl max-w-[340px]">
+              {/* Contenedor adaptado a proporción 3:4 */}
+              <div className="relative rounded-2xl overflow-hidden border border-neutral-800 shadow-2xl max-w-[320px] aspect-[3/4] w-full">
                 <img 
                   src={contractPhoto} 
                   onError={() => setContractPhoto(defaultContractFallback)}
-                  alt="Firma de contrato y asesoría legal"
-                  className="w-full h-48 sm:h-56 object-cover object-center"
+                  alt="Asesoría legal Paula Rucci"
+                  className="w-full h-full object-cover object-top"
                 />
               </div>
             </div>
 
             <div className="md:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
-              {/* 1. Blanco en Móvil / Blanco en Desktop */}
               <div className="flex items-center justify-center px-4 py-3 bg-white sm:bg-white text-black rounded-full text-center text-[11px] sm:text-[12px] font-bold uppercase tracking-wide leading-tight min-h-[48px] shadow-sm">
                 DEMANDA DE PENSIÓN DE ALIMENTOS
               </div>
-
-              {/* 2. Amarillo en Móvil / Amarillo en Desktop */}
               <div className="flex items-center justify-center px-4 py-3 bg-[#F4CE58] sm:bg-[#F4CE58] text-black rounded-full text-center text-[11px] sm:text-[12px] font-bold uppercase tracking-wide leading-tight min-h-[48px] shadow-sm">
                 COBRO DE DEUDA DE ALIMENTOS
               </div>
-
-              {/* 3. Blanco en Móvil / Amarillo en Desktop */}
               <div className="flex items-center justify-center px-4 py-3 bg-white sm:bg-[#F4CE58] text-black rounded-full text-center text-[11px] sm:text-[12px] font-bold uppercase tracking-wide leading-tight min-h-[48px] shadow-sm">
                 MEDIACIÓN
               </div>
-
-              {/* 4. Amarillo en Móvil / Blanco en Desktop */}
               <div className="flex items-center justify-center px-4 py-3 bg-[#F4CE58] sm:bg-white text-black rounded-full text-center text-[11px] sm:text-[12px] font-bold uppercase tracking-wide leading-tight min-h-[48px] shadow-sm">
                 VIOLENCIA INTRAFAMILIAR
               </div>
-
-              {/* 5. Blanco en Móvil / Blanco en Desktop */}
               <div className="flex items-center justify-center px-4 py-3 bg-white sm:bg-white text-black rounded-full text-center text-[11px] sm:text-[12px] font-bold uppercase tracking-wide leading-tight min-h-[48px] shadow-sm">
                 DIVORCIOS
               </div>
-
-              {/* 6. Amarillo en Móvil / Amarillo en Desktop */}
               <div className="flex items-center justify-center px-4 py-3 bg-[#F4CE58] sm:bg-[#F4CE58] text-black rounded-full text-center text-[11px] sm:text-[12px] font-bold uppercase tracking-wide leading-tight min-h-[48px] shadow-sm">
                 ÓRDENES DE ALEJAMIENTO
               </div>
-
-              {/* 7. Blanco en Móvil / Amarillo en Desktop */}
               <div className="flex items-center justify-center px-4 py-3 bg-white sm:bg-[#F4CE58] text-black rounded-full text-center text-[11px] sm:text-[12px] font-bold uppercase tracking-wide leading-tight min-h-[48px] shadow-sm">
                 CESE DE ALIMENTOS
               </div>
-
-              {/* 8. Amarillo en Móvil / Blanco en Desktop */}
               <div className="flex items-center justify-center px-4 py-3 bg-[#F4CE58] sm:bg-white text-black rounded-full text-center text-[11px] sm:text-[12px] font-bold uppercase tracking-wide leading-tight min-h-[48px] shadow-sm">
                 AUMENTO DE ALIMENTOS
               </div>
-
-              {/* 9. Blanco en Móvil / Blanco en Desktop */}
               <div className="flex items-center justify-center px-4 py-3 bg-white sm:bg-white text-black rounded-full text-center text-[11px] sm:text-[12px] font-bold uppercase tracking-wide leading-tight min-h-[48px] shadow-sm">
                 RELACIÓN DIRECTA Y REGULAR (VISITAS)
               </div>
-
-              {/* 10. Amarillo en Móvil / Amarillo en Desktop */}
               <div className="flex items-center justify-center px-4 py-3 bg-[#F4CE58] sm:bg-[#F4CE58] text-black rounded-full text-center text-[11px] sm:text-[12px] font-bold uppercase tracking-wide leading-tight min-h-[48px] shadow-sm">
                 CUIDADO PERSONAL
               </div>
-
-              {/* 11. Blanco en Móvil / Amarillo en Desktop */}
               <div className="flex items-center justify-center px-4 py-3 bg-white sm:bg-[#F4CE58] text-black rounded-full text-center text-[11px] sm:text-[12px] font-bold uppercase tracking-wide leading-tight min-h-[48px] shadow-sm">
                 VULNERACIÓN DERECHOS DE LOS NIÑOS
               </div>
-
-              {/* 12. Amarillo en Móvil / Blanco en Desktop */}
               <div className="flex items-center justify-center px-4 py-3 bg-[#F4CE58] sm:bg-white text-black rounded-full text-center text-[11px] sm:text-[12px] font-bold uppercase tracking-wide leading-tight min-h-[48px] shadow-sm">
                 AUTORIZACIÓN SALIDA DEL PAÍS
               </div>
