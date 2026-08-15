@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { 
   Instagram, 
-  Video
+  Video,
+  Check,
+  X
 } from 'lucide-react';
 
 function WhatsAppIcon({ className = "w-4 h-4 fill-current" }: { className?: string }) {
@@ -16,17 +18,22 @@ export default function App() {
   const [formData, setFormData] = useState({
     nombre: '',
     correo: '',
-    mensaje: ''
+    caso: ''
   });
-  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
-  // URL con parámetro theme=light para integración perfecta en fondo claro
+  // Link oficial del evento en Cal.com
   const calComUrl = "https://cal.com/paula-rucci/consulta-legal?embed=true&layout=month_view&theme=light";
 
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.nombre.trim() || !formData.correo.trim()) return;
-    setFormSubmitted(true);
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+    setFormData({ nombre: '', correo: '', caso: '' });
   };
 
   const [lawyerPhoto, setLawyerPhoto] = useState("/images/paula-rucci.jpg");
@@ -39,7 +46,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-[#0A0A0A] text-black font-sans flex justify-center selection:bg-[#EFCA53] selection:text-black scroll-smooth">
       
-      {/* Contenedor Lienzo PDF (overflow-x-clip permite el funcionamiento de position: sticky) */}
+      {/* Contenedor Lienzo PDF */}
       <div className="w-full max-w-[960px] bg-white shadow-2xl overflow-x-clip flex flex-col relative">
         
         {/* NAVBAR FLOTANTE */}
@@ -117,8 +124,8 @@ export default function App() {
           </div>
         </section>
 
-        {/* SECCIÓN 2: PENSIÓN DE ALIMENTOS */}
-        <section className="grid grid-cols-1 md:grid-cols-2 bg-[#F4CE58]">
+        {/* SECCIÓN 2: PENSIÓN DE ALIMENTOS (FONDO BLANCO EN EL CUADRO DE TEXTO) */}
+        <section className="grid grid-cols-1 md:grid-cols-2 bg-white">
           <div className="relative min-h-[380px] md:min-h-[480px] bg-neutral-900 overflow-hidden">
             <img 
               src={lawyerPhoto} 
@@ -129,21 +136,21 @@ export default function App() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
           </div>
 
-          <div className="bg-[#F4CE58] p-8 sm:p-12 lg:p-14 flex flex-col justify-center space-y-5 text-[#141414]">
+          <div className="bg-white p-8 sm:p-12 lg:p-14 flex flex-col justify-center space-y-5 text-[#141414] border-l border-[#E5DFD5]">
             <h2 className="font-serif text-2xl sm:text-3xl font-extrabold tracking-tight uppercase leading-tight text-[#141414]">
               DEMANDA DE PENSIÓN<br />
               DE ALIMENTOS
             </h2>
 
-            <p className="text-[13px] sm:text-[14px] text-[#1A1A1A] leading-relaxed font-medium">
+            <p className="text-[13px] sm:text-[14px] text-[#2C2C2C] leading-relaxed font-medium">
               No se trata solo de demandar una pensión de alimentos, sino de exigir lo que legalmente corresponde para tus hijos.
             </p>
 
-            <p className="text-[13px] sm:text-[14px] text-[#1A1A1A] leading-relaxed">
+            <p className="text-[13px] sm:text-[14px] text-[#2C2C2C] leading-relaxed">
               Estudio tu caso en detalle para determinar cuánto corresponde solicitar y cómo respaldarlo. Te entrego una estrategia clara para enfrentar el proceso con seguridad y decisión.
             </p>
 
-            <p className="text-[13px] sm:text-[14px] text-[#1A1A1A] leading-relaxed">
+            <p className="text-[13px] sm:text-[14px] text-[#2C2C2C] leading-relaxed">
               Defiendo tus derechos y los de tus hijos, desplegando toda la estrategia judicial para fijar una pensión de alimentos acorde a sus necesidades.
             </p>
 
@@ -225,14 +232,13 @@ export default function App() {
           </div>
         </section>
 
-        {/* SECCIÓN 4: MÓDULO CAL.COM EMBEBIDO Y SIN BORDES */}
+        {/* SECCIÓN 4: MÓDULO CAL.COM */}
         <section id="agenda" className="bg-[#F3EFE9] px-6 sm:px-10 lg:px-12 py-14 sm:py-20 border-t border-b border-[#E5DFD5]">
           <div className="space-y-8">
             <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-wider text-[#141414] uppercase">
               RESERVA TU HORA
             </h2>
 
-            {/* iFrame de Cal.com integrado directamente sobre el fondo beige */}
             <div className="w-full min-h-[680px]">
               <iframe
                 src={calComUrl}
@@ -243,7 +249,7 @@ export default function App() {
           </div>
         </section>
 
-        {/* SECCIÓN 5: FOOTER */}
+        {/* SECCIÓN 5: FOOTER CON FORMULARIO MEJORADO */}
         <footer id="contacto" className="grid grid-cols-1 md:grid-cols-12">
           <div className="md:col-span-7 bg-black text-white p-8 sm:p-12 lg:p-14 flex flex-col justify-between space-y-8">
             <div className="space-y-6">
@@ -252,62 +258,58 @@ export default function App() {
                 Y HABLEMOS.
               </h2>
 
-              {formSubmitted ? (
-                <div className="py-6 space-y-2">
-                  <div className="text-[#F4CE58] font-bold text-sm">✓ Mensaje Enviado</div>
-                  <p className="text-neutral-300 text-xs">
-                    Gracias {formData.nombre}. Te contactaré a la brevedad.
-                  </p>
+              <form onSubmit={handleFormSubmit} className="space-y-4 max-w-sm">
+                <div className="space-y-1.5">
+                  <label htmlFor="nombre" className="block text-xs font-bold text-neutral-300">
+                    Nombre
+                  </label>
+                  <input
+                    type="text"
+                    id="nombre"
+                    required
+                    value={formData.nombre}
+                    onChange={(e) => setFormData({ ...formData, nombre: e.target.value })}
+                    className="w-full bg-white text-black text-sm px-5 py-3 rounded-full outline-none focus:ring-2 focus:ring-[#F4CE58]"
+                  />
+                </div>
+
+                <div className="space-y-1.5">
+                  <label htmlFor="correo" className="block text-xs font-bold text-neutral-300">
+                    Correo
+                  </label>
+                  <input
+                    type="email"
+                    id="correo"
+                    required
+                    value={formData.correo}
+                    onChange={(e) => setFormData({ ...formData, correo: e.target.value })}
+                    className="w-full bg-white text-black text-sm px-5 py-3 rounded-full outline-none focus:ring-2 focus:ring-[#F4CE58]"
+                  />
+                </div>
+
+                {/* Nuevo Campo: Cuéntame brevemente tu caso */}
+                <div className="space-y-1.5">
+                  <label htmlFor="caso" className="block text-xs font-bold text-neutral-300">
+                    Cuéntame brevemente tu caso
+                  </label>
+                  <textarea
+                    id="caso"
+                    rows={3}
+                    value={formData.caso}
+                    onChange={(e) => setFormData({ ...formData, caso: e.target.value })}
+                    className="w-full bg-white text-black text-sm px-5 py-3 rounded-2xl outline-none focus:ring-2 focus:ring-[#F4CE58] resize-none"
+                  />
+                </div>
+
+                <div className="pt-2">
                   <button
-                    onClick={() => {
-                      setFormSubmitted(false);
-                      setFormData({ nombre: '', correo: '', mensaje: '' });
-                    }}
-                    className="text-xs text-neutral-400 hover:text-white underline pt-2"
+                    type="submit"
+                    className="w-full bg-[#F4CE58] hover:bg-[#ebc44d] text-black font-bold text-xs uppercase tracking-wider py-3.5 px-6 rounded-full transition-all duration-200 shadow-md cursor-pointer"
                   >
-                    Enviar otro mensaje
+                    Enviar Consulta
                   </button>
                 </div>
-              ) : (
-                <form onSubmit={handleFormSubmit} className="space-y-4 max-w-sm">
-                  <div className="space-y-1.5">
-                    <label htmlFor="nombre" className="block text-xs font-bold text-neutral-300">
-                      Nombre
-                    </label>
-                    <input
-                      type="text"
-                      id="nombre"
-                      required
-                      value={formData.nombre}
-                      onChange={(e) => setFormData({ ...formData, nombre: e.target.value })}
-                      className="w-full bg-white text-black text-sm px-5 py-3 rounded-full outline-none focus:ring-2 focus:ring-[#F4CE58]"
-                    />
-                  </div>
-
-                  <div className="space-y-1.5">
-                    <label htmlFor="correo" className="block text-xs font-bold text-neutral-300">
-                      Correo
-                    </label>
-                    <input
-                      type="email"
-                      id="correo"
-                      required
-                      value={formData.correo}
-                      onChange={(e) => setFormData({ ...formData, correo: e.target.value })}
-                      className="w-full bg-white text-black text-sm px-5 py-3 rounded-full outline-none focus:ring-2 focus:ring-[#F4CE58]"
-                    />
-                  </div>
-
-                  <div className="pt-2">
-                    <button
-                      type="submit"
-                      className="w-full bg-[#F4CE58] hover:bg-[#ebc44d] text-black font-bold text-xs uppercase tracking-wider py-3.5 px-6 rounded-full transition-all duration-200 shadow-md cursor-pointer"
-                    >
-                      Enviar Consulta
-                    </button>
-                  </div>
-                </form>
-              )}
+              </form>
             </div>
 
             <div className="flex items-center gap-4 pt-8 border-t border-neutral-900">
@@ -378,6 +380,42 @@ export default function App() {
         </footer>
 
       </div>
+
+      {/* POPUP MODAL DE CONFIRMACIÓN */}
+      {showModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4">
+          <div className="bg-[#F3EFE9] border-2 border-[#F4CE58] rounded-2xl p-8 max-w-md w-full text-center space-y-5 shadow-2xl relative animate-in fade-in zoom-in duration-200">
+            <button 
+              onClick={closeModal}
+              className="absolute top-4 right-4 text-neutral-400 hover:text-black transition-colors"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            <div className="w-12 h-12 rounded-full bg-[#25D366]/20 text-[#1a9a48] flex items-center justify-center mx-auto">
+              <Check className="w-6 h-6 stroke-[3]" />
+            </div>
+
+            <h3 className="font-serif text-xl font-bold text-[#141414] uppercase tracking-wide">
+              ¡Consulta Enviada!
+            </h3>
+
+            <p className="text-[#2C2C2C] text-sm leading-relaxed font-medium">
+              Gracias. Nos pondremos en contacto contigo para abordar tu caso.
+            </p>
+
+            <div className="pt-2">
+              <button
+                onClick={closeModal}
+                className="bg-black hover:bg-[#1f1f1f] text-white px-8 py-3 rounded-full font-bold text-xs uppercase tracking-wider transition-all duration-200 shadow-md"
+              >
+                Aceptar
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
     </div>
   );
 }
