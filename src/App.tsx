@@ -196,17 +196,21 @@ export default function App() {
           </div>
         </section>
 
-        {/* SECCIÓN 3: NUESTROS SERVICIOS (PROPORCIÓN FOTO 3:4) */}
+        {/* SECCIÓN 3: NUESTROS SERVICIOS (ESTRUCTURA BALANCEADA) */}
         <section id="servicios" className="bg-black text-white px-8 sm:px-12 lg:px-14 py-14 sm:py-20">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 sm:gap-10 items-start">
-            <div className="md:col-span-5 space-y-6">
-              <h2 className="font-serif text-3xl sm:text-4xl font-bold tracking-tight uppercase leading-tight text-white">
-                NUESTROS<br />
-                SERVICIOS
-              </h2>
+          
+          {/* Título Principal Arriba */}
+          <div className="mb-10 text-center md:text-left">
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold tracking-tight uppercase leading-tight text-white">
+              NUESTROS SERVICIOS
+            </h2>
+          </div>
 
-              {/* Contenedor adaptado a proporción 3:4 */}
-              <div className="relative rounded-2xl overflow-hidden border border-neutral-800 shadow-2xl max-w-[320px] aspect-[3/4] w-full">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 sm:gap-10 items-center">
+            
+            {/* Foto 3:4 perfectamente centrada al nivel de la parrilla */}
+            <div className="md:col-span-5 flex justify-center md:justify-start">
+              <div className="relative rounded-2xl overflow-hidden border border-neutral-800 shadow-2xl w-full max-w-[320px] aspect-[3/4]">
                 <img 
                   src={contractPhoto} 
                   onError={() => setContractPhoto(defaultContractFallback)}
@@ -216,7 +220,8 @@ export default function App() {
               </div>
             </div>
 
-            <div className="md:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+            {/* Parrilla de Botones alineada */}
+            <div className="md:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div className="flex items-center justify-center px-4 py-3 bg-white sm:bg-white text-black rounded-full text-center text-[11px] sm:text-[12px] font-bold uppercase tracking-wide leading-tight min-h-[48px] shadow-sm">
                 DEMANDA DE PENSIÓN DE ALIMENTOS
               </div>
@@ -254,6 +259,7 @@ export default function App() {
                 AUTORIZACIÓN SALIDA DEL PAÍS
               </div>
             </div>
+
           </div>
         </section>
 
