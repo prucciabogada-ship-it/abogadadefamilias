@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { 
-  MessageCircle, 
   Calendar, 
   Instagram, 
   Check, 
@@ -8,8 +7,17 @@ import {
   Video
 } from 'lucide-react';
 
+// Componente para el Icono Vectorial Oficial de WhatsApp
+function WhatsAppIcon({ className = "w-4 h-4 fill-current" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24">
+      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.205 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+    </svg>
+  );
+}
+
 export default function App() {
-  // Estado del formulario de contacto
+  // Estado del formulario
   const [formData, setFormData] = useState({
     nombre: '',
     correo: '',
@@ -44,10 +52,10 @@ export default function App() {
     setBookingConfirmed(true);
   };
 
-  // Rutas de imágenes (Carga desde public/ con fallback)
-  const [lawyerPhoto, setLawyerPhoto] = useState("/paula-rucci.jpg");
-  const [contractPhoto, setContractPhoto] = useState("/contract-signing.jpg");
-  const [logoPhoto, setLogoPhoto] = useState("/logo.png");
+  // Rutas ajustadas exactamente a public/images/
+  const [lawyerPhoto, setLawyerPhoto] = useState("/images/paula-rucci.jpg");
+  const [contractPhoto, setContractPhoto] = useState("/images/contract-signing.jpg");
+  const [logoPhoto, setLogoPhoto] = useState("/images/logo.png");
 
   const defaultLawyerFallback = "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1000&q=80";
   const defaultContractFallback = "https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=1000&q=80";
@@ -55,13 +63,11 @@ export default function App() {
   return (
     <div className="min-h-screen bg-[#0A0A0A] text-black font-sans flex justify-center selection:bg-[#EFCA53] selection:text-black scroll-smooth">
       
-      {/* Contenedor Principal (Simula el lienzo PDF) */}
+      {/* Contenedor Lienzo PDF */}
       <div className="w-full max-w-[960px] bg-white shadow-2xl overflow-hidden flex flex-col relative">
         
-        {/* =========================================================================
-            NAVBAR MINIMALISTA & ELEGANTE
-        ========================================================================= */}
-        <header className="sticky top-0 z-50 bg-[#F3EFE9]/90 backdrop-blur-md border-b border-[#E5DFD5] px-6 py-4 flex items-center justify-between">
+        {/* NAVBAR */}
+        <header className="sticky top-0 z-50 bg-[#F3EFE9]/95 backdrop-blur-md border-b border-[#E5DFD5] px-6 py-4 flex items-center justify-between">
           <a href="#" className="font-serif text-sm font-bold tracking-[0.2em] text-[#141414] uppercase hover:text-[#C9A227] transition-colors">
             PAULA RUCCI
           </a>
@@ -79,13 +85,10 @@ export default function App() {
           </nav>
         </header>
 
-        {/* =========================================================================
-            SECCIÓN 1: HERO / PORTADA
-        ========================================================================= */}
+        {/* SECCIÓN 1: HERO */}
         <section className="bg-[#F3EFE9] px-8 sm:px-14 lg:px-16 py-12 sm:py-16 border-b border-[#E5DFD5]">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-10 sm:gap-12 items-center">
             
-            {/* Columna Izquierda: Contenidos */}
             <div className="md:col-span-7 space-y-6">
               <h1 className="font-serif text-3xl sm:text-4xl lg:text-[42px] font-bold text-[#141414] leading-[1.15] tracking-tight uppercase">
                 ABOGADA DE<br />
@@ -117,19 +120,19 @@ export default function App() {
                   className="inline-flex items-center gap-3 bg-black hover:bg-[#1f1f1f] text-white px-6 sm:px-8 py-3.5 rounded-full font-bold text-xs sm:text-sm tracking-wider uppercase transition-all duration-200 shadow-md hover:shadow-lg active:scale-[0.98]"
                 >
                   <span className="w-6 h-6 rounded-full bg-[#25D366] flex items-center justify-center text-white shrink-0">
-                    <MessageCircle className="w-3.5 h-3.5 fill-current" />
+                    <WhatsAppIcon className="w-3.5 h-3.5 fill-current" />
                   </span>
                   <span>CONTÁCTAME</span>
                 </a>
               </div>
             </div>
 
-            {/* Columna Derecha: Logo Oficial Circular */}
+            {/* Logo Oficial en Círculo */}
             <div className="md:col-span-5 flex flex-col items-center justify-center text-center space-y-4 pt-4 md:pt-0">
-              <div className="relative w-44 h-44 sm:w-52 sm:h-52 rounded-full overflow-hidden shadow-xl border-2 border-[#EFCA53]/50">
+              <div className="relative w-44 h-44 sm:w-52 sm:h-52 rounded-full overflow-hidden shadow-xl border-2 border-[#EFCA53]/50 bg-black">
                 <img 
                   src={logoPhoto} 
-                  onError={() => setLogoPhoto("/logo.jpg")}
+                  onError={() => setLogoPhoto("/images/logo.png")}
                   alt="Paula Rucci Logo Oficial"
                   className="w-full h-full object-cover object-center"
                 />
@@ -139,12 +142,9 @@ export default function App() {
           </div>
         </section>
 
-        {/* =========================================================================
-            SECCIÓN 2: DEMANDA DE PENSIÓN DE ALIMENTOS
-        ========================================================================= */}
+        {/* SECCIÓN 2: DEMANDA DE PENSIÓN DE ALIMENTOS */}
         <section className="grid grid-cols-1 md:grid-cols-2 bg-[#F4CE58]">
           
-          {/* Foto Real de la Clienta */}
           <div className="relative min-h-[380px] md:min-h-[480px] bg-neutral-900 overflow-hidden">
             <img 
               src={lawyerPhoto} 
@@ -155,7 +155,6 @@ export default function App() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
           </div>
 
-          {/* Caja Amarilla con Texto */}
           <div className="bg-[#F4CE58] p-8 sm:p-12 lg:p-14 flex flex-col justify-center space-y-5 text-[#141414]">
             <h2 className="font-serif text-2xl sm:text-3xl font-extrabold tracking-tight uppercase leading-tight text-[#141414]">
               DEMANDA DE PENSIÓN<br />
@@ -193,13 +192,10 @@ export default function App() {
 
         </section>
 
-        {/* =========================================================================
-            SECCIÓN 3: NUESTROS SERVICIOS
-        ========================================================================= */}
+        {/* SECCIÓN 3: SERVICIOS */}
         <section id="servicios" className="bg-black text-white px-8 sm:px-12 lg:px-14 py-14 sm:py-20">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 sm:gap-10 items-start">
             
-            {/* Título e Imagen de Firma de Contrato */}
             <div className="md:col-span-5 space-y-6">
               <h2 className="font-serif text-3xl sm:text-4xl font-bold tracking-tight uppercase leading-tight text-white">
                 NUESTROS<br />
@@ -216,7 +212,6 @@ export default function App() {
               </div>
             </div>
 
-            {/* Grid de Servicios */}
             <div className="md:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
               <div className="flex items-center justify-center px-4 py-3 bg-transparent border border-neutral-700 text-white rounded-full text-center text-[11px] sm:text-[12px] font-bold uppercase tracking-wide leading-tight min-h-[48px]">
                 DEMANDA DE PENSIÓN DE ALIMENTOS
@@ -259,9 +254,7 @@ export default function App() {
           </div>
         </section>
 
-        {/* =========================================================================
-            SECCIÓN 4: AGENDA INTEGRADA
-        ========================================================================= */}
+        {/* SECCIÓN 4: AGENDA */}
         <section id="agenda" className="bg-[#F3EFE9] px-8 sm:px-14 lg:px-16 py-14 sm:py-20 border-t border-b border-[#E5DFD5]">
           <div className="space-y-8">
             
@@ -362,12 +355,9 @@ export default function App() {
           </div>
         </section>
 
-        {/* =========================================================================
-            SECCIÓN 5: FOOTER / CONTACTO
-        ========================================================================= */}
+        {/* SECCIÓN 5: FOOTER */}
         <footer id="contacto" className="grid grid-cols-1 md:grid-cols-12">
           
-          {/* Columna Izquierda: Formulario & Firma */}
           <div className="md:col-span-7 bg-black text-white p-8 sm:p-12 lg:p-14 flex flex-col justify-between space-y-8">
             <div className="space-y-6">
               <h2 className="font-serif text-2xl sm:text-3xl font-bold tracking-tight uppercase leading-snug text-white">
@@ -433,12 +423,11 @@ export default function App() {
               )}
             </div>
 
-            {/* Logo y Nombre Institucional */}
             <div className="flex items-center gap-4 pt-8 border-t border-neutral-900">
-              <div className="w-12 h-12 rounded-full overflow-hidden shrink-0 border border-[#EFCA53]/40">
+              <div className="w-12 h-12 rounded-full overflow-hidden shrink-0 border border-[#EFCA53]/40 bg-black">
                 <img 
                   src={logoPhoto} 
-                  onError={() => setLogoPhoto("/logo.jpg")}
+                  onError={() => setLogoPhoto("/images/logo.png")}
                   alt="Paula Rucci Logo Footer"
                   className="w-full h-full object-cover"
                 />
@@ -458,10 +447,9 @@ export default function App() {
             </div>
           </div>
 
-          {/* Columna Derecha: Botones Amarillos */}
           <div className="md:col-span-5 bg-[#F4CE58] p-8 sm:p-12 lg:p-14 flex flex-col justify-center items-center space-y-6">
             
-            {/* Botón WhatsApp */}
+            {/* Botón WhatsApp Footer */}
             <a
               href="https://wa.me/56983698589?text=Hola%20Paula,%20quisiera%20solicitar%20informaci%C3%B3n%20para%20una%20consulta%20legal."
               target="_blank"
@@ -469,14 +457,13 @@ export default function App() {
               className="w-full max-w-[280px] bg-white hover:bg-neutral-50 text-black px-6 py-4 rounded-full flex items-center gap-4 shadow-lg hover:shadow-xl transition-all duration-200 group active:scale-[0.98]"
             >
               <span className="w-10 h-10 rounded-full bg-[#25D366] flex items-center justify-center text-white shrink-0 shadow-sm">
-                <MessageCircle className="w-5 h-5 fill-current" />
+                <WhatsAppIcon className="w-5 h-5 fill-current" />
               </span>
               <span className="font-bold text-base sm:text-lg text-[#141414]">
                 Contáctame
               </span>
             </a>
 
-            {/* Botón Agéndate */}
             <a
               href="#agenda"
               className="w-full max-w-[280px] bg-white hover:bg-neutral-50 text-black px-6 py-4 rounded-full flex items-center gap-4 shadow-lg hover:shadow-xl transition-all duration-200 group active:scale-[0.98]"
@@ -489,7 +476,6 @@ export default function App() {
               </span>
             </a>
 
-            {/* Botón Instagram */}
             <a
               href="https://www.instagram.com/prucci.abogada/"
               target="_blank"
