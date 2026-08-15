@@ -24,10 +24,8 @@ export default function App() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
-  // Link oficial del evento en Cal.com
   const calComUrl = "https://cal.com/paula-rucci/consulta-legal?embed=true&layout=month_view&theme=light";
 
-  // Envío real a través del motor FormSubmit
   const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.nombre.trim() || !formData.correo.trim()) return;
@@ -218,7 +216,8 @@ export default function App() {
             </div>
 
             <div className="md:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
-              <div className="flex items-center justify-center px-4 py-3 bg-transparent border border-neutral-700 text-white rounded-full text-center text-[11px] sm:text-[12px] font-bold uppercase tracking-wide leading-tight min-h-[48px]">
+              {/* CAMBIADO A BLANCO CON TEXTO NEGRO */}
+              <div className="flex items-center justify-center px-4 py-3 bg-white text-black rounded-full text-center text-[11px] sm:text-[12px] font-bold uppercase tracking-wide leading-tight min-h-[48px] shadow-sm">
                 DEMANDA DE PENSIÓN DE ALIMENTOS
               </div>
               <div className="flex items-center justify-center px-4 py-3 bg-[#F4CE58] text-black rounded-full text-center text-[11px] sm:text-[12px] font-bold uppercase tracking-wide leading-tight min-h-[48px] shadow-sm">
@@ -414,7 +413,7 @@ export default function App() {
 
       </div>
 
-      {/* MODAL DE CONFIRMACIÓN REAL */}
+      {/* MODAL DE CONFIRMACIÓN */}
       {showModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4">
           <div className="bg-[#F3EFE9] border-2 border-[#F4CE58] rounded-2xl p-8 max-w-md w-full text-center space-y-5 shadow-2xl relative animate-in fade-in zoom-in duration-200">
