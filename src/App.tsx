@@ -104,25 +104,26 @@ export default function App() {
                 FAMILIA E INFANCIA
               </h1>
 
-              <p className="text-[13px] sm:text-[14px] text-[#2C2C2C] leading-relaxed font-normal">
+              <p className="text-[13px] sm:text-[14px] text-[#2C2C2C] leading-relaxed font-normal text-justify">
                 Soy abogada especializada en Derecho de Familia, comprometida con brindar
                 una asesoría jurídica seria, clara y cercana. Entiendo que detrás de cada caso
                 existe una historia personal y familiar que merece ser escuchada y abordada con respeto.
               </p>
 
-              <p className="text-[13px] sm:text-[14px] text-[#2C2C2C] leading-relaxed font-normal">
+              <p className="text-[13px] sm:text-[14px] text-[#2C2C2C] leading-relaxed font-normal text-justify">
                 Mi trabajo entrega un servicio jurídico estratégico, acompañando a cada persona durante todo el proceso.
               </p>
 
-              <div className="space-y-1 pt-1 text-[12px] sm:text-[13px] text-[#333333] font-medium leading-snug">
-                <p>Abogada diplomada en Derecho de Familia Universidad Católica,</p>
-                <p>Magister en Derecho de Familia e Infancia Universidad de Los Andes,</p>
-                <p>Ex Funcionaria Poder Judicial.</p>
+              {/* BLOQUE DESTACADO DE CREDENCIALES ACADÉMICAS */}
+              <div className="bg-[#F4CE58]/25 border-l-4 border-[#C9A227] p-4 rounded-r-lg space-y-1.5 text-[12px] sm:text-[13px] text-[#141414] font-semibold leading-snug shadow-sm">
+                <p>• Abogada diplomada en Derecho de Familia Universidad Católica,</p>
+                <p>• Magister en Derecho de Familia e Infancia Universidad de Los Andes,</p>
+                <p>• Ex Funcionaria Poder Judicial.</p>
               </div>
 
               <div className="pt-3">
                 <a
-                  href="https://wa.me/5698369858?text=Hola%20Paula,%20quisiera%20solicitar%20informaci%C3%B3n%20para%20una%20consulta%20legal."
+                  href="https://wa.me/56979255441?text=Hola%20Paula,%20quisiera%20solicitar%20informaci%C3%B3n%20para%20una%20consulta%20legal."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-3 bg-black hover:bg-[#1f1f1f] text-white px-6 sm:px-8 py-3.5 rounded-full font-bold text-xs sm:text-sm tracking-wider uppercase transition-all duration-200 shadow-md hover:shadow-lg active:scale-[0.98]"
@@ -166,19 +167,19 @@ export default function App() {
               DE ALIMENTOS
             </h2>
 
-            <p className="text-[13px] sm:text-[14px] text-[#2C2C2C] leading-relaxed font-medium">
+            <p className="text-[13px] sm:text-[14px] text-[#2C2C2C] leading-relaxed font-medium text-justify">
               No se trata solo de demandar una pensión de alimentos, sino de exigir lo que legalmente corresponde para tus hijos.
             </p>
 
-            <p className="text-[13px] sm:text-[14px] text-[#2C2C2C] leading-relaxed">
+            <p className="text-[13px] sm:text-[14px] text-[#2C2C2C] leading-relaxed text-justify">
               Estudio tu caso en detalle para determinar cuánto corresponde solicitar y cómo respaldarlo. Te entrego una estrategia clara para enfrentar el proceso con seguridad y decisión.
             </p>
 
-            <p className="text-[13px] sm:text-[14px] text-[#2C2C2C] leading-relaxed">
+            <p className="text-[13px] sm:text-[14px] text-[#2C2C2C] leading-relaxed text-justify">
               Defiendo tus derechos y los de tus hijos, desplegando toda la estrategia judicial para fijar una pensión de alimentos acorde a sus necesidades.
             </p>
 
-            <p className="text-[13px] sm:text-[14px] font-bold text-[#141414] leading-relaxed">
+            <p className="text-[13px] sm:text-[14px] font-bold text-[#141414] leading-relaxed text-justify">
               Si el otro progenitor no cumple, yo te ayudo a EXIGIR que cumpla.
             </p>
 
@@ -274,7 +275,7 @@ export default function App() {
           </div>
         </section>
 
-        {/* SECCIÓN 5: FOOTER FORMULARIO REAL */}
+        {/* SECCIÓN 5: FOOTER */}
         <footer id="contacto" className="grid grid-cols-1 md:grid-cols-12">
           <div className="md:col-span-7 bg-black text-white p-8 sm:p-12 lg:p-14 flex flex-col justify-between space-y-8">
             <div className="space-y-6">
@@ -370,7 +371,7 @@ export default function App() {
 
           <div className="md:col-span-5 bg-[#F4CE58] p-8 sm:p-12 lg:p-14 flex flex-col justify-center items-center space-y-6">
             <a
-              href="https://wa.me/5698369858?text=Hola%20Paula,%20quisiera%20solicitar%20informaci%C3%B3n%20para%20una%20consulta%20legal."
+              href="https://wa.me/56979255441?text=Hola%20Paula,%20quisiera%20solicitar%20informaci%C3%B3n%20para%20una%20consulta%20legal."
               target="_blank"
               rel="noopener noreferrer"
               className="w-full max-w-[280px] bg-white hover:bg-neutral-50 text-black px-6 py-4 rounded-full flex items-center gap-4 shadow-lg hover:shadow-xl transition-all duration-200 group active:scale-[0.98]"
