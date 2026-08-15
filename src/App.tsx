@@ -3,7 +3,8 @@ import {
   Instagram, 
   Video,
   Check,
-  X
+  X,
+  Loader2
 } from 'lucide-react';
 
 function WhatsAppIcon({ className = "w-4 h-4 fill-current" }: { className?: string }) {
@@ -20,15 +21,45 @@ export default function App() {
     correo: '',
     caso: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
   // Link oficial del evento en Cal.com
   const calComUrl = "https://cal.com/paula-rucci/consulta-legal?embed=true&layout=month_view&theme=light";
 
-  const handleFormSubmit = (e: React.FormEvent) => {
+  // Envío real a través del motor FormSubmit
+  const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.nombre.trim() || !formData.correo.trim()) return;
-    setShowModal(true);
+
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/prucci.abogada@gmail.com", {
+        method: "POST",
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          Nombre: formData.nombre,
+          Correo: formData.correo,
+          "Detalle del Caso": formData.caso || "No especificado",
+          _subject: "Nuevo Mensaje de Contacto — Sitio Web Paula Rucci"
+        })
+      });
+
+      if (response.ok) {
+        setShowModal(true);
+      } else {
+        alert("Ocurrió un inconveniente al enviar el mensaje. Por favor intente nuevamente.");
+      }
+    } catch (error) {
+      console.error("Error en envío:", error);
+      alert("Error de conexión al enviar la consulta.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const closeModal = () => {
@@ -45,8 +76,6 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#0A0A0A] text-black font-sans flex justify-center selection:bg-[#EFCA53] selection:text-black scroll-smooth">
-      
-      {/* Contenedor Lienzo PDF */}
       <div className="w-full max-w-[960px] bg-white shadow-2xl overflow-x-clip flex flex-col relative">
         
         {/* NAVBAR FLOTANTE */}
@@ -71,7 +100,6 @@ export default function App() {
         {/* SECCIÓN 1: HERO */}
         <section className="bg-[#F3EFE9] px-8 sm:px-14 lg:px-16 py-12 sm:py-16 border-b border-[#E5DFD5]">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-10 sm:gap-12 items-center">
-            
             <div className="md:col-span-7 space-y-6">
               <h1 className="font-serif text-3xl sm:text-4xl lg:text-[42px] font-bold text-[#141414] leading-[1.15] tracking-tight uppercase">
                 ABOGADA DE<br />
@@ -109,7 +137,6 @@ export default function App() {
               </div>
             </div>
 
-            {/* Logo Oficial Agrandado */}
             <div className="md:col-span-5 flex flex-col items-center justify-center text-center space-y-4 pt-4 md:pt-0">
               <div className="relative w-60 h-60 sm:w-72 sm:h-72 rounded-full overflow-hidden shadow-2xl border-2 border-[#EFCA53]/60 bg-black">
                 <img 
@@ -120,11 +147,10 @@ export default function App() {
                 />
               </div>
             </div>
-
           </div>
         </section>
 
-        {/* SECCIÓN 2: PENSIÓN DE ALIMENTOS (FONDO BLANCO EN EL CUADRO DE TEXTO) */}
+        {/* SECCIÓN 2: DEMANDA DE PENSIÓN DE ALIMENTOS */}
         <section className="grid grid-cols-1 md:grid-cols-2 bg-white">
           <div className="relative min-h-[380px] md:min-h-[480px] bg-neutral-900 overflow-hidden">
             <img 
@@ -249,7 +275,7 @@ export default function App() {
           </div>
         </section>
 
-        {/* SECCIÓN 5: FOOTER CON FORMULARIO MEJORADO */}
+        {/* SECCIÓN 5: FOOTER FORMULARIO REAL */}
         <footer id="contacto" className="grid grid-cols-1 md:grid-cols-12">
           <div className="md:col-span-7 bg-black text-white p-8 sm:p-12 lg:p-14 flex flex-col justify-between space-y-8">
             <div className="space-y-6">
@@ -287,7 +313,6 @@ export default function App() {
                   />
                 </div>
 
-                {/* Nuevo Campo: Cuéntame brevemente tu caso */}
                 <div className="space-y-1.5">
                   <label htmlFor="caso" className="block text-xs font-bold text-neutral-300">
                     Cuéntame brevemente tu caso
@@ -304,9 +329,17 @@ export default function App() {
                 <div className="pt-2">
                   <button
                     type="submit"
-                    className="w-full bg-[#F4CE58] hover:bg-[#ebc44d] text-black font-bold text-xs uppercase tracking-wider py-3.5 px-6 rounded-full transition-all duration-200 shadow-md cursor-pointer"
+                    disabled={isSubmitting}
+                    className="w-full bg-[#F4CE58] hover:bg-[#ebc44d] text-black font-bold text-xs uppercase tracking-wider py-3.5 px-6 rounded-full transition-all duration-200 shadow-md cursor-pointer flex items-center justify-center gap-2 disabled:opacity-60"
                   >
-                    Enviar Consulta
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="w-4 h-4 animate-spin" />
+                        <span>Enviando...</span>
+                      </>
+                    ) : (
+                      <span>Enviar Consulta</span>
+                    )}
                   </button>
                 </div>
               </form>
@@ -369,7 +402,7 @@ export default function App() {
               rel="noopener noreferrer"
               className="w-full max-w-[280px] bg-white hover:bg-neutral-50 text-black px-6 py-4 rounded-full flex items-center gap-4 shadow-lg hover:shadow-xl transition-all duration-200 group active:scale-[0.98]"
             >
-              <span className="w-10 h-10 rounded-full bg-gradient-to-tr from-[#F58529] via-[#DD2A7B] to-[#8134AF] flex items-center justify-center text-white shrink-0 shadow-sm">
+              <span className="w-10 h-10 rounded-full bg-[#E4405F] flex items-center justify-center text-white shrink-0 shadow-sm">
                 <Instagram className="w-5 h-5" />
               </span>
               <span className="font-bold text-base sm:text-lg text-[#141414]">
@@ -381,7 +414,7 @@ export default function App() {
 
       </div>
 
-      {/* POPUP MODAL DE CONFIRMACIÓN */}
+      {/* MODAL DE CONFIRMACIÓN REAL */}
       {showModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4">
           <div className="bg-[#F3EFE9] border-2 border-[#F4CE58] rounded-2xl p-8 max-w-md w-full text-center space-y-5 shadow-2xl relative animate-in fade-in zoom-in duration-200">
