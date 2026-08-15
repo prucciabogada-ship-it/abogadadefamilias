@@ -20,8 +20,8 @@ export default function App() {
   });
   const [formSubmitted, setFormSubmitted] = useState(false);
 
-  // Link oficial del evento en Cal.com
-  const calComUrl = "https://cal.com/paula-rucci/consulta-legal?embed=true&layout=month_view";
+  // URL con parámetro theme=light para integración perfecta en fondo claro
+  const calComUrl = "https://cal.com/paula-rucci/consulta-legal?embed=true&layout=month_view&theme=light";
 
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -38,10 +38,12 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#0A0A0A] text-black font-sans flex justify-center selection:bg-[#EFCA53] selection:text-black scroll-smooth">
-      <div className="w-full max-w-[960px] bg-white shadow-2xl overflow-hidden flex flex-col relative">
+      
+      {/* Contenedor Lienzo PDF (overflow-x-clip permite el funcionamiento de position: sticky) */}
+      <div className="w-full max-w-[960px] bg-white shadow-2xl overflow-x-clip flex flex-col relative">
         
-        {/* NAVBAR */}
-        <header className="sticky top-0 z-50 bg-[#F3EFE9]/95 backdrop-blur-md border-b border-[#E5DFD5] px-6 py-4 flex items-center justify-between">
+        {/* NAVBAR FLOTANTE */}
+        <header className="sticky top-0 z-50 bg-[#F3EFE9]/95 backdrop-blur-md border-b border-[#E5DFD5] px-6 py-4 flex items-center justify-between shadow-sm">
           <a href="#" className="font-serif text-sm font-bold tracking-[0.2em] text-[#141414] uppercase hover:text-[#C9A227] transition-colors">
             PAULA RUCCI
           </a>
@@ -115,7 +117,7 @@ export default function App() {
           </div>
         </section>
 
-        {/* SECCIÓN 2: DEMANDA DE PENSIÓN DE ALIMENTOS */}
+        {/* SECCIÓN 2: PENSIÓN DE ALIMENTOS */}
         <section className="grid grid-cols-1 md:grid-cols-2 bg-[#F4CE58]">
           <div className="relative min-h-[380px] md:min-h-[480px] bg-neutral-900 overflow-hidden">
             <img 
@@ -223,26 +225,19 @@ export default function App() {
           </div>
         </section>
 
-        {/* SECCIÓN 4: MÓDULO CAL.COM EMBEBIDO */}
+        {/* SECCIÓN 4: MÓDULO CAL.COM EMBEBIDO Y SIN BORDES */}
         <section id="agenda" className="bg-[#F3EFE9] px-6 sm:px-10 lg:px-12 py-14 sm:py-20 border-t border-b border-[#E5DFD5]">
           <div className="space-y-8">
-            <div className="space-y-1">
-              <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-wider text-[#141414] uppercase">
-                AGENDA INTEGRADA
-              </h2>
-              <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-wider text-[#141414] uppercase">
-                AGENDA INTEGRADA
-              </h2>
-              <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-wider text-[#141414] uppercase">
-                AGENDA INTEGRADA
-              </h2>
-            </div>
+            <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-wider text-[#141414] uppercase">
+              RESERVA TU HORA
+            </h2>
 
-            <div className="bg-white border border-[#DDD6CB] rounded-lg shadow-sm overflow-hidden min-h-[700px]">
+            {/* iFrame de Cal.com integrado directamente sobre el fondo beige */}
+            <div className="w-full min-h-[680px]">
               <iframe
                 src={calComUrl}
                 title="Agenda interactiva Paula Rucci"
-                className="w-full h-[720px] border-none"
+                className="w-full h-[700px] border-none bg-transparent"
               ></iframe>
             </div>
           </div>
