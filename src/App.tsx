@@ -1,13 +1,9 @@
 import React, { useState } from 'react';
 import { 
-  Calendar, 
   Instagram, 
-  Check, 
-  Clock, 
   Video
 } from 'lucide-react';
 
-// Componente para el Icono Vectorial Oficial de WhatsApp
 function WhatsAppIcon({ className = "w-4 h-4 fill-current" }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 24 24">
@@ -17,7 +13,6 @@ function WhatsAppIcon({ className = "w-4 h-4 fill-current" }: { className?: stri
 }
 
 export default function App() {
-  // Estado del formulario
   const [formData, setFormData] = useState({
     nombre: '',
     correo: '',
@@ -25,21 +20,8 @@ export default function App() {
   });
   const [formSubmitted, setFormSubmitted] = useState(false);
 
-  // Estado de la agenda
-  const [selectedDate, setSelectedDate] = useState<number | null>(19);
-  const [selectedTime, setSelectedTime] = useState<string | null>('11:00 AM');
-  const [bookingConfirmed, setBookingConfirmed] = useState(false);
-
-  const availableDays = [
-    { day: 18, name: 'LUN', slots: 3 },
-    { day: 19, name: 'MAR', slots: 4 },
-    { day: 20, name: 'MIÉ', slots: 5 },
-    { day: 21, name: 'JUE', slots: 2 },
-    { day: 22, name: 'VIE', slots: 4 },
-    { day: 25, name: 'LUN', slots: 6 },
-  ];
-
-  const availableHours = ['09:30 AM', '11:00 AM', '15:00 PM', '16:30 PM', '18:00 PM'];
+  // Link oficial del evento en Cal.com
+  const calComUrl = "https://cal.com/paula-rucci/consulta-legal?embed=true&layout=month_view";
 
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -47,12 +29,6 @@ export default function App() {
     setFormSubmitted(true);
   };
 
-  const handleBooking = () => {
-    if (!selectedDate || !selectedTime) return;
-    setBookingConfirmed(true);
-  };
-
-  // Rutas ajustadas exactamente a public/images/
   const [lawyerPhoto, setLawyerPhoto] = useState("/images/paula-rucci.jpg");
   const [contractPhoto, setContractPhoto] = useState("/images/contract-signing.jpg");
   const [logoPhoto, setLogoPhoto] = useState("/images/logo.png");
@@ -62,8 +38,6 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#0A0A0A] text-black font-sans flex justify-center selection:bg-[#EFCA53] selection:text-black scroll-smooth">
-      
-      {/* Contenedor Lienzo PDF */}
       <div className="w-full max-w-[960px] bg-white shadow-2xl overflow-hidden flex flex-col relative">
         
         {/* NAVBAR */}
@@ -111,7 +85,6 @@ export default function App() {
                 <p>Ex Funcionaria Poder Judicial.</p>
               </div>
 
-              {/* Botón WhatsApp */}
               <div className="pt-3">
                 <a
                   href="https://wa.me/56983698589?text=Hola%20Paula,%20quisiera%20solicitar%20informaci%C3%B3n%20para%20una%20consulta%20legal."
@@ -127,9 +100,9 @@ export default function App() {
               </div>
             </div>
 
-            {/* Logo Oficial en Círculo */}
+            {/* Logo Oficial Agrandado */}
             <div className="md:col-span-5 flex flex-col items-center justify-center text-center space-y-4 pt-4 md:pt-0">
-              <div className="relative w-44 h-44 sm:w-52 sm:h-52 rounded-full overflow-hidden shadow-xl border-2 border-[#EFCA53]/50 bg-black">
+              <div className="relative w-60 h-60 sm:w-72 sm:h-72 rounded-full overflow-hidden shadow-2xl border-2 border-[#EFCA53]/60 bg-black">
                 <img 
                   src={logoPhoto} 
                   onError={() => setLogoPhoto("/images/logo.png")}
@@ -144,7 +117,6 @@ export default function App() {
 
         {/* SECCIÓN 2: DEMANDA DE PENSIÓN DE ALIMENTOS */}
         <section className="grid grid-cols-1 md:grid-cols-2 bg-[#F4CE58]">
-          
           <div className="relative min-h-[380px] md:min-h-[480px] bg-neutral-900 overflow-hidden">
             <img 
               src={lawyerPhoto} 
@@ -189,13 +161,11 @@ export default function App() {
               </a>
             </div>
           </div>
-
         </section>
 
-        {/* SECCIÓN 3: SERVICIOS */}
+        {/* SECCIÓN 3: NUESTROS SERVICIOS */}
         <section id="servicios" className="bg-black text-white px-8 sm:px-12 lg:px-14 py-14 sm:py-20">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 sm:gap-10 items-start">
-            
             <div className="md:col-span-5 space-y-6">
               <h2 className="font-serif text-3xl sm:text-4xl font-bold tracking-tight uppercase leading-tight text-white">
                 NUESTROS<br />
@@ -250,14 +220,12 @@ export default function App() {
                 AUTORIZACIÓN SALIDA DEL PAÍS
               </div>
             </div>
-
           </div>
         </section>
 
-        {/* SECCIÓN 4: AGENDA */}
-        <section id="agenda" className="bg-[#F3EFE9] px-8 sm:px-14 lg:px-16 py-14 sm:py-20 border-t border-b border-[#E5DFD5]">
+        {/* SECCIÓN 4: MÓDULO CAL.COM EMBEBIDO */}
+        <section id="agenda" className="bg-[#F3EFE9] px-6 sm:px-10 lg:px-12 py-14 sm:py-20 border-t border-b border-[#E5DFD5]">
           <div className="space-y-8">
-            
             <div className="space-y-1">
               <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-wider text-[#141414] uppercase">
                 AGENDA INTEGRADA
@@ -270,94 +238,18 @@ export default function App() {
               </h2>
             </div>
 
-            <div className="bg-white border border-[#DDD6CB] p-6 sm:p-8 rounded-lg shadow-sm">
-              {bookingConfirmed ? (
-                <div className="text-center py-8 space-y-4">
-                  <div className="w-12 h-12 rounded-full bg-[#25D366]/20 text-[#1a9a48] flex items-center justify-center mx-auto">
-                    <Check className="w-6 h-6 stroke-[3]" />
-                  </div>
-                  <h3 className="font-serif text-2xl font-bold text-[#141414]">
-                    ¡Hora Reservada con Éxito!
-                  </h3>
-                  <p className="text-neutral-600 text-sm max-w-md mx-auto">
-                    Tu cita ha quedado confirmada para el <span className="font-bold text-black">{selectedDate} de Agosto</span> a las <span className="font-bold text-black">{selectedTime}</span>.
-                  </p>
-                  <button
-                    onClick={() => setBookingConfirmed(false)}
-                    className="mt-2 text-xs font-bold uppercase tracking-wider text-[#C9A227] hover:underline"
-                  >
-                    Modificar o agendar otra hora
-                  </button>
-                </div>
-              ) : (
-                <div className="space-y-6">
-                  <div>
-                    <div className="text-xs font-bold uppercase tracking-wider text-neutral-500 mb-3 flex items-center gap-2">
-                      <Calendar className="w-3.5 h-3.5 text-[#C9A227]" />
-                      Selecciona la fecha disponible:
-                    </div>
-                    <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
-                      {availableDays.map((item) => (
-                        <button
-                          key={item.day}
-                          type="button"
-                          onClick={() => setSelectedDate(item.day)}
-                          className={`p-3 text-center rounded border transition-all ${
-                            selectedDate === item.day
-                              ? 'bg-black text-white border-black font-bold shadow-md'
-                              : 'bg-[#F9F7F4] border-[#E5DFD5] text-neutral-800 hover:border-black'
-                          }`}
-                        >
-                          <span className="block text-[10px] uppercase font-semibold opacity-70">{item.name}</span>
-                          <span className="block text-lg font-bold font-serif">{item.day}</span>
-                          <span className="block text-[9px] opacity-80">{item.slots} disp.</span>
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div>
-                    <div className="text-xs font-bold uppercase tracking-wider text-neutral-500 mb-3 flex items-center gap-2">
-                      <Clock className="w-3.5 h-3.5 text-[#C9A227]" />
-                      Selecciona el horario:
-                    </div>
-                    <div className="grid grid-cols-2 sm:grid-cols-5 gap-2">
-                      {availableHours.map((time) => (
-                        <button
-                          key={time}
-                          type="button"
-                          onClick={() => setSelectedTime(time)}
-                          className={`py-2 px-3 text-xs rounded border text-center font-medium transition-all ${
-                            selectedTime === time
-                              ? 'bg-[#F4CE58] text-black border-[#F4CE58] font-bold shadow-sm'
-                              : 'bg-[#F9F7F4] border-[#E5DFD5] text-neutral-800 hover:border-neutral-400'
-                          }`}
-                        >
-                          {time}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="pt-2 flex justify-end">
-                    <button
-                      type="button"
-                      onClick={handleBooking}
-                      className="w-full sm:w-auto bg-black hover:bg-[#1f1f1f] text-white px-8 py-3.5 rounded-full font-bold text-xs uppercase tracking-wider transition-all duration-200 shadow-md cursor-pointer"
-                    >
-                      Confirmar Reserva de Hora
-                    </button>
-                  </div>
-                </div>
-              )}
+            <div className="bg-white border border-[#DDD6CB] rounded-lg shadow-sm overflow-hidden min-h-[700px]">
+              <iframe
+                src={calComUrl}
+                title="Agenda interactiva Paula Rucci"
+                className="w-full h-[720px] border-none"
+              ></iframe>
             </div>
-
           </div>
         </section>
 
         {/* SECCIÓN 5: FOOTER */}
         <footer id="contacto" className="grid grid-cols-1 md:grid-cols-12">
-          
           <div className="md:col-span-7 bg-black text-white p-8 sm:p-12 lg:p-14 flex flex-col justify-between space-y-8">
             <div className="space-y-6">
               <h2 className="font-serif text-2xl sm:text-3xl font-bold tracking-tight uppercase leading-snug text-white">
@@ -448,8 +340,6 @@ export default function App() {
           </div>
 
           <div className="md:col-span-5 bg-[#F4CE58] p-8 sm:p-12 lg:p-14 flex flex-col justify-center items-center space-y-6">
-            
-            {/* Botón WhatsApp Footer */}
             <a
               href="https://wa.me/56983698589?text=Hola%20Paula,%20quisiera%20solicitar%20informaci%C3%B3n%20para%20una%20consulta%20legal."
               target="_blank"
@@ -489,9 +379,7 @@ export default function App() {
                 Sígueme
               </span>
             </a>
-
           </div>
-
         </footer>
 
       </div>
