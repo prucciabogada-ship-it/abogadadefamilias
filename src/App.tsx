@@ -196,7 +196,7 @@ export default function App() {
           </div>
         </section>
 
-        {/* SECCIÓN 3: NUESTROS SERVICIOS */}
+        {/* SECCIÓN 3: NUESTROS SERVICIOS (COLOR RESPONSIVO MÓVIL vs DESKTOP) */}
         <section id="servicios" className="bg-black text-white px-8 sm:px-12 lg:px-14 py-14 sm:py-20">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 sm:gap-10 items-start">
             <div className="md:col-span-5 space-y-6">
@@ -216,41 +216,63 @@ export default function App() {
             </div>
 
             <div className="md:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
-              {/* CAMBIADO A BLANCO CON TEXTO NEGRO */}
-              <div className="flex items-center justify-center px-4 py-3 bg-white text-black rounded-full text-center text-[11px] sm:text-[12px] font-bold uppercase tracking-wide leading-tight min-h-[48px] shadow-sm">
+              {/* 1. Blanco en Móvil / Blanco en Desktop */}
+              <div className="flex items-center justify-center px-4 py-3 bg-white sm:bg-white text-black rounded-full text-center text-[11px] sm:text-[12px] font-bold uppercase tracking-wide leading-tight min-h-[48px] shadow-sm">
                 DEMANDA DE PENSIÓN DE ALIMENTOS
               </div>
-              <div className="flex items-center justify-center px-4 py-3 bg-[#F4CE58] text-black rounded-full text-center text-[11px] sm:text-[12px] font-bold uppercase tracking-wide leading-tight min-h-[48px] shadow-sm">
+
+              {/* 2. Amarillo en Móvil / Amarillo en Desktop */}
+              <div className="flex items-center justify-center px-4 py-3 bg-[#F4CE58] sm:bg-[#F4CE58] text-black rounded-full text-center text-[11px] sm:text-[12px] font-bold uppercase tracking-wide leading-tight min-h-[48px] shadow-sm">
                 COBRO DE DEUDA DE ALIMENTOS
               </div>
-              <div className="flex items-center justify-center px-4 py-3 bg-[#F4CE58] text-black rounded-full text-center text-[11px] sm:text-[12px] font-bold uppercase tracking-wide leading-tight min-h-[48px] shadow-sm">
+
+              {/* 3. Blanco en Móvil / Amarillo en Desktop */}
+              <div className="flex items-center justify-center px-4 py-3 bg-white sm:bg-[#F4CE58] text-black rounded-full text-center text-[11px] sm:text-[12px] font-bold uppercase tracking-wide leading-tight min-h-[48px] shadow-sm">
                 MEDIACIÓN
               </div>
-              <div className="flex items-center justify-center px-4 py-3 bg-white text-black rounded-full text-center text-[11px] sm:text-[12px] font-bold uppercase tracking-wide leading-tight min-h-[48px] shadow-sm">
+
+              {/* 4. Amarillo en Móvil / Blanco en Desktop */}
+              <div className="flex items-center justify-center px-4 py-3 bg-[#F4CE58] sm:bg-white text-black rounded-full text-center text-[11px] sm:text-[12px] font-bold uppercase tracking-wide leading-tight min-h-[48px] shadow-sm">
                 VIOLENCIA INTRAFAMILIAR
               </div>
-              <div className="flex items-center justify-center px-4 py-3 bg-white text-black rounded-full text-center text-[11px] sm:text-[12px] font-bold uppercase tracking-wide leading-tight min-h-[48px] shadow-sm">
+
+              {/* 5. Blanco en Móvil / Blanco en Desktop */}
+              <div className="flex items-center justify-center px-4 py-3 bg-white sm:bg-white text-black rounded-full text-center text-[11px] sm:text-[12px] font-bold uppercase tracking-wide leading-tight min-h-[48px] shadow-sm">
                 DIVORCIOS
               </div>
-              <div className="flex items-center justify-center px-4 py-3 bg-[#F4CE58] text-black rounded-full text-center text-[11px] sm:text-[12px] font-bold uppercase tracking-wide leading-tight min-h-[48px] shadow-sm">
+
+              {/* 6. Amarillo en Móvil / Amarillo en Desktop */}
+              <div className="flex items-center justify-center px-4 py-3 bg-[#F4CE58] sm:bg-[#F4CE58] text-black rounded-full text-center text-[11px] sm:text-[12px] font-bold uppercase tracking-wide leading-tight min-h-[48px] shadow-sm">
                 ÓRDENES DE ALEJAMIENTO
               </div>
-              <div className="flex items-center justify-center px-4 py-3 bg-[#F4CE58] text-black rounded-full text-center text-[11px] sm:text-[12px] font-bold uppercase tracking-wide leading-tight min-h-[48px] shadow-sm">
+
+              {/* 7. Blanco en Móvil / Amarillo en Desktop */}
+              <div className="flex items-center justify-center px-4 py-3 bg-white sm:bg-[#F4CE58] text-black rounded-full text-center text-[11px] sm:text-[12px] font-bold uppercase tracking-wide leading-tight min-h-[48px] shadow-sm">
                 CESE DE ALIMENTOS
               </div>
-              <div className="flex items-center justify-center px-4 py-3 bg-white text-black rounded-full text-center text-[11px] sm:text-[12px] font-bold uppercase tracking-wide leading-tight min-h-[48px] shadow-sm">
+
+              {/* 8. Amarillo en Móvil / Blanco en Desktop */}
+              <div className="flex items-center justify-center px-4 py-3 bg-[#F4CE58] sm:bg-white text-black rounded-full text-center text-[11px] sm:text-[12px] font-bold uppercase tracking-wide leading-tight min-h-[48px] shadow-sm">
                 AUMENTO DE ALIMENTOS
               </div>
-              <div className="flex items-center justify-center px-4 py-3 bg-white text-black rounded-full text-center text-[11px] sm:text-[12px] font-bold uppercase tracking-wide leading-tight min-h-[48px] shadow-sm">
+
+              {/* 9. Blanco en Móvil / Blanco en Desktop */}
+              <div className="flex items-center justify-center px-4 py-3 bg-white sm:bg-white text-black rounded-full text-center text-[11px] sm:text-[12px] font-bold uppercase tracking-wide leading-tight min-h-[48px] shadow-sm">
                 RELACIÓN DIRECTA Y REGULAR (VISITAS)
               </div>
-              <div className="flex items-center justify-center px-4 py-3 bg-[#F4CE58] text-black rounded-full text-center text-[11px] sm:text-[12px] font-bold uppercase tracking-wide leading-tight min-h-[48px] shadow-sm">
+
+              {/* 10. Amarillo en Móvil / Amarillo en Desktop */}
+              <div className="flex items-center justify-center px-4 py-3 bg-[#F4CE58] sm:bg-[#F4CE58] text-black rounded-full text-center text-[11px] sm:text-[12px] font-bold uppercase tracking-wide leading-tight min-h-[48px] shadow-sm">
                 CUIDADO PERSONAL
               </div>
-              <div className="flex items-center justify-center px-4 py-3 bg-[#F4CE58] text-black rounded-full text-center text-[11px] sm:text-[12px] font-bold uppercase tracking-wide leading-tight min-h-[48px] shadow-sm">
+
+              {/* 11. Blanco en Móvil / Amarillo en Desktop */}
+              <div className="flex items-center justify-center px-4 py-3 bg-white sm:bg-[#F4CE58] text-black rounded-full text-center text-[11px] sm:text-[12px] font-bold uppercase tracking-wide leading-tight min-h-[48px] shadow-sm">
                 VULNERACIÓN DERECHOS DE LOS NIÑOS
               </div>
-              <div className="flex items-center justify-center px-4 py-3 bg-white text-black rounded-full text-center text-[11px] sm:text-[12px] font-bold uppercase tracking-wide leading-tight min-h-[48px] shadow-sm">
+
+              {/* 12. Amarillo en Móvil / Blanco en Desktop */}
+              <div className="flex items-center justify-center px-4 py-3 bg-[#F4CE58] sm:bg-white text-black rounded-full text-center text-[11px] sm:text-[12px] font-bold uppercase tracking-wide leading-tight min-h-[48px] shadow-sm">
                 AUTORIZACIÓN SALIDA DEL PAÍS
               </div>
             </div>
