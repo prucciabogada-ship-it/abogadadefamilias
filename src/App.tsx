@@ -116,8 +116,8 @@ export default function App() {
 
               {/* BLOQUE DESTACADO DE CREDENCIALES ACADÉMICAS */}
               <div className="bg-[#F4CE58]/25 border-l-4 border-[#C9A227] p-4 rounded-r-lg space-y-1.5 text-[12px] sm:text-[13px] text-[#141414] font-semibold leading-snug shadow-sm">
-                <p>• Abogada diplomada en Derecho de Familia Universidad Católica,</p>
-                <p>• Magister en Derecho de Familia e Infancia Universidad de Los Andes,</p>
+                <p>• Abogada diplomada en Derecho de Familia Universidad Católica.</p>
+                <p>• Magister en Derecho de Familia e Infancia Universidad de Los Andes.</p>
                 <p>• Ex Funcionaria Poder Judicial.</p>
               </div>
 
