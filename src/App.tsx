@@ -114,11 +114,11 @@ export default function App() {
                 Mi trabajo entrega un servicio jurídico estratégico, acompañando a cada persona durante todo el proceso.
               </p>
 
-              {/* BLOQUE DESTACADO DE CREDENCIALES ACADÉMICAS */}
-              <div className="bg-[#F4CE58]/25 border-l-4 border-[#C9A227] p-4 rounded-r-lg space-y-1.5 text-[12px] sm:text-[13px] text-[#141414] font-semibold leading-snug shadow-sm">
-                <p>• Abogada diplomada en Derecho de Familia Universidad Católica,</p>
-                <p>• Magister en Derecho de Familia e Infancia Universidad de Los Andes,</p>
-                <p>• Ex Funcionaria Poder Judicial.</p>
+              {/* DESTACADO EDITORIAL SOBRIO (SIN APARIENCIA DE TARJETA DE NOTAS) */}
+              <div className="border-l-2 border-[#C9A227] pl-4 py-1 space-y-1.5 text-[12px] sm:text-[13px] text-[#141414] font-medium leading-snug">
+                <p className="text-[#333333]">Abogada diplomada en Derecho de Familia Universidad Católica,</p>
+                <p className="text-[#333333]">Magister en Derecho de Familia e Infancia Universidad de Los Andes,</p>
+                <p className="text-[#333333]">Ex Funcionaria Poder Judicial.</p>
               </div>
 
               <div className="pt-3">
@@ -136,13 +136,14 @@ export default function App() {
               </div>
             </div>
 
+            {/* LOGO CIRCULAR CON FONDO BLANCO / CLARO */}
             <div className="md:col-span-5 flex flex-col items-center justify-center text-center space-y-4 pt-4 md:pt-0">
-              <div className="relative w-60 h-60 sm:w-72 sm:h-72 rounded-full overflow-hidden shadow-2xl border-2 border-[#EFCA53]/60 bg-black">
+              <div className="relative w-60 h-60 sm:w-72 sm:h-72 rounded-full overflow-hidden shadow-xl border-2 border-[#EFCA53]/60 bg-white p-2">
                 <img 
                   src={logoPhoto} 
                   onError={() => setLogoPhoto("/images/logo.png")}
                   alt="Paula Rucci Logo Oficial"
-                  className="w-full h-full object-cover object-center"
+                  className="w-full h-full object-contain object-center rounded-full"
                 />
               </div>
             </div>
@@ -346,12 +347,12 @@ export default function App() {
             </div>
 
             <div className="flex items-center gap-4 pt-8 border-t border-neutral-900">
-              <div className="w-12 h-12 rounded-full overflow-hidden shrink-0 border border-[#EFCA53]/40 bg-black">
+              <div className="w-12 h-12 rounded-full overflow-hidden shrink-0 border border-[#EFCA53]/40 bg-white p-1">
                 <img 
                   src={logoPhoto} 
                   onError={() => setLogoPhoto("/images/logo.png")}
                   alt="Paula Rucci Logo Footer"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                 />
               </div>
 
