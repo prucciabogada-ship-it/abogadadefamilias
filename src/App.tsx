@@ -114,11 +114,11 @@ export default function App() {
                 Mi trabajo entrega un servicio jurídico estratégico, acompañando a cada persona durante todo el proceso.
               </p>
 
-              {/* CREDENCIALES FORMATO SOBRIO Y ELEGANTE */}
-              <div className="border-l-2 border-[#C9A227] pl-4 py-1 space-y-1.5 text-[12px] sm:text-[13px] font-semibold leading-snug">
-                <p className="text-[#141414]">Abogada diplomada en Derecho de Familia Universidad Católica,</p>
-                <p className="text-[#141414]">Magister en Derecho de Familia e Infancia Universidad de Los Andes,</p>
-                <p className="text-[#141414]">Ex Funcionaria Poder Judicial.</p>
+              {/* CREDENCIALES ESTILO ORIGINAL LIMPIO */}
+              <div className="space-y-1 pt-1 text-[12px] sm:text-[13px] text-[#333333] font-medium leading-snug">
+                <p>Abogada diplomada en Derecho de Familia Universidad Católica,</p>
+                <p>Magister en Derecho de Familia e Infancia Universidad de Los Andes,</p>
+                <p>Ex Funcionaria Poder Judicial.</p>
               </div>
 
               <div className="pt-3">
@@ -136,14 +136,14 @@ export default function App() {
               </div>
             </div>
 
-            {/* LOGO EN FONDO NEGRO CON REALCE DE TEXTO DORADO */}
+            {/* LOGO EN FONDO NEGRO ORIGINAL */}
             <div className="md:col-span-5 flex flex-col items-center justify-center text-center space-y-4 pt-4 md:pt-0">
-              <div className="relative w-60 h-60 sm:w-72 sm:h-72 rounded-full overflow-hidden shadow-2xl border-2 border-[#EFCA53]/70 bg-black p-3">
+              <div className="relative w-60 h-60 sm:w-72 sm:h-72 rounded-full overflow-hidden shadow-2xl border-2 border-[#EFCA53]/60 bg-black p-2">
                 <img 
                   src={logoPhoto} 
                   onError={() => setLogoPhoto("/images/logo.png")}
                   alt="Paula Rucci Logo Oficial"
-                  className="w-full h-full object-contain object-center rounded-full filter brightness-110 contrast-125 saturate-110"
+                  className="w-full h-full object-contain object-center rounded-full"
                 />
               </div>
             </div>
@@ -352,7 +352,7 @@ export default function App() {
                   src={logoPhoto} 
                   onError={() => setLogoPhoto("/images/logo.png")}
                   alt="Paula Rucci Logo Footer"
-                  className="w-full h-full object-contain filter brightness-110 contrast-125"
+                  className="w-full h-full object-contain"
                 />
               </div>
 
