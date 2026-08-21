@@ -1,20 +1,26 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# Paula Rucci — Abogada de Familia e Infancia
 
-# Run and deploy your AI Studio app
+> Sitio web institucional, plataforma de agendamiento online y sistema de contacto desplegado para **[abogadadefamilias.cl](https://abogadadefamilias.cl)**.
 
-This contains everything you need to run your app locally.
+Desarrollado e impulsado por **[PáginasPro.cl](https://www.paginaspro.cl)**.
 
-View your app in AI Studio: https://ai.studio/apps/83674a81-87ec-41cb-8b0d-c740d8b5513e
+---
 
-## Run Locally
+## 🚀 Arquitectura e Infraestructura
 
-**Prerequisites:**  Node.js
+- **Frontend:** React + Vite + TypeScript
+- **Estilos & Diseño:** Tailwind CSS (Lienzo responsivo e identidad institucional)
+- **Iconografía:** Lucide React
+- **Infraestructura & CDN:** Cloudflare Pages (Despliegue continuo CI/CD)
+- **Agendamiento Online:** Cal.com + Integración automática Zoom Workplace Pro
+- **Flujo de Correo & Formulario:** Cloudflare Email Routing + FormSubmit
 
+---
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## 💻 Desarrollo y Ejecución Local
+
+Para ejecutar el proyecto en entorno de desarrollo local:
+
+1. **Instalar dependencias:**
+   ```bash
+   npm install
